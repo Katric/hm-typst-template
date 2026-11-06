@@ -55,21 +55,20 @@
 #let english-expose = [
   #show: thesis.with(
     expose: true,
-    title: [Planning a Master's Thesis on Distributed Systems],
-    title-translation: [Planung einer Masterarbeit zu verteilten Systemen],
+    title: [Planning a Bachelor's Thesis on the Analysis of Distributed Systems],
     language: "en",
-    study-name: study-name.IGM,
+    study-name: study-name.IFB,
     submission-date: datetime(year: 2026, month: 10, day: 4),
-    student-id: 87654321,
-    author: "Alex Example",
-    supervisors: ("Dr. Ada Example", "Prof. Dr. Max Mustermann"),
-    gender: "m",
-    examiner-gender: "d",
-    draft: true,
+    student-id: 12345678,
+    author: "Erika Mustermann",
+    supervisors: "Prof. Dr. Max Mustermann",
+    gender: "w",
+    examiner-gender: "m",
+    draft: false,
     print-list-of-figures: false,
     print-list-of-tables: false,
     print-list-of-listings: false,
-    layout-mode: "duplex",
+    layout-mode: "screen",
   )
 
   = Motivation
@@ -92,7 +91,7 @@
 
   #figure(
     rect(width: 70%, height: 35mm, fill: luma(220)),
-    caption: [Planned structure of the investigation],
+    caption: [Geplanter Aufbau der Untersuchung],
   )
 
   = Timeline
@@ -105,5 +104,4 @@
 ]
 
 #german-expose
-#pagebreak()
 #english-expose
