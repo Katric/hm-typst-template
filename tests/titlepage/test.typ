@@ -139,3 +139,49 @@
   date-today: "4. Oktober 2026",
   t: en,
 )
+
+#pagebreak()
+
+#state("draft", true).update(true)
+#expose-titlepage(
+  title: [Planung einer Bachelorarbeit],
+  title-translation: [Planning a Bachelor's Thesis],
+  date: "4. Oktober 2026",
+  author: "Erika Mustermann",
+  id: 12345678,
+  supervisors: "Prof. Dr. Max Mustermann",
+  study-info: ifb,
+  gender: "w",
+  examiner-gender: "m",
+  draft: true,
+  date-today: "4. Oktober 2026",
+  t: de,
+)
+
+#pagebreak()
+
+#state("draft", false).update(false)
+#expose-titlepage(
+  title: [Planning a Master's Thesis],
+  title-translation: [Planung einer Masterarbeit],
+  date: "October 4, 2026",
+  author: "Alex Example",
+  id: 87654321,
+  supervisors: ("Dr. Ada Example", "Prof. Dr. Max Mustermann"),
+  study-info: igm,
+  gender: "m",
+  examiner-gender: "d",
+  draft: false,
+  date-today: "October 4, 2026",
+  t: en,
+)
+
+#pagebreak()
+
+#state("draft", true).update(true)
+#expose-titlepage(
+  study-info: itm,
+  draft: true,
+  date-today: "4. Oktober 2026",
+  t: de,
+)

@@ -180,6 +180,24 @@
       t: t,
     )
     pagebreak()
+  } else if document-type == "expose" {
+    import "components/titlepage.typ": expose-titlepage
+
+    expose-titlepage(
+      title: title,
+      title-translation: title-translation,
+      date: if submission-date != none { custom-date-format(submission-date, lang: language, pattern: "long") } else { none },
+      author: author,
+      id: student-id,
+      supervisors: supervisors,
+      study-info: info,
+      gender: gender,
+      examiner-gender: examiner-gender,
+      draft: draft,
+      date-today: custom-date-format(datetime.today(), lang: language, pattern: "long"),
+      t: t,
+    )
+    pagebreak()
   }
   if (force-odd) { pagebreak(to: "odd") }
   // ---
@@ -413,6 +431,7 @@
   abstract-translation: none,
   blocking: false,
   enable-header: true,
+  expose: false,
   draft: true,
   bib: none,
   abbreviations-list: none,
@@ -428,7 +447,7 @@
   body,
 ) = {
   _document(
-    document-type: "thesis",
+    document-type: if expose { "expose" } else { "thesis" },
     title: title,
     title-translation: title-translation,
     author: author,

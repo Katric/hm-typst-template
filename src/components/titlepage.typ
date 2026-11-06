@@ -95,6 +95,99 @@
   ])
 }
 
+#let expose-titlepage(
+  title: none,
+  title-translation: none,
+  date: none,
+  author: none,
+  id: none,
+  supervisors: none,
+  study-info: none,
+  gender: none,
+  examiner-gender: none,
+  draft: true,
+  date-today: none,
+  t: none,
+) = {
+  align(center, [
+    #v(1cm)
+
+    #image("../media/HM_logo.png", width: 45%)
+
+    #t.hm \
+    #study-info.fk
+
+    #v(2cm)
+
+    #text(size: 14pt)[#(t.expose-title)(thesis-type: study-info.thesis-type)]
+
+    #text(size: 16pt, weight: "bold", if (title != none) {
+      title
+    } else {
+      todo[#t.title]
+    })
+
+    #context {
+      text(size: 14pt, if (title-translation != none) {
+        title-translation
+      } else { if (text.lang == "de") { todo[Title] } })
+    }
+
+    #v(0.5cm)
+
+    #text(size: 14pt)[
+      #if draft {
+        text(hm-color)[
+          #t.draft \
+          #t.as-of: #if date != none { date } else { date-today }]
+      } else {
+        [
+          #t.as-of: #if date != none { date } else { date-today }
+        ]
+      }
+    ]
+
+    #v(1fr)
+
+    #grid(
+      columns: (auto, auto),
+      row-gutter: 1em,
+      column-gutter: 1.5em,
+      align: (right, left),
+
+      [#(t.author)(gender: gender)], [#if (author != none) { author } else { todo[#(t.author)(gender: "m")] }],
+
+      [#t.student-id], [#if (id != none) { id } else { todo[Matrikelnummer] }],
+
+      [#t.study-program], [#study-info.name],
+
+      [
+        #if (supervisors != none) {
+          if type(supervisors) == array {
+            t.supervisors
+          } else {
+            (t.supervisor)(gender: examiner-gender)
+          }
+        } else {
+          (t.supervisor)(gender: "m")
+        }
+      ],
+      [
+        #if (supervisors != none) {
+          if type(supervisors) == array {
+            supervisors.join("\n")
+          } else {
+            supervisors
+          }
+        } else {
+          todo[#(t.supervisor)(gender: "m")]
+        }
+      ],
+    )
+
+  ])
+}
+
 #let modularbeit-titlepage(
   subject: none,
   project-description: none,
