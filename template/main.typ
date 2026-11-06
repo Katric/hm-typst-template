@@ -1,4 +1,4 @@
-#import "@preview/scribbling-hm:0.1.12": *
+#import "@preview/scribbling-hm:0.1.13": *
 
 #import "abbreviations.typ": abbreviations-list
 #import "variables.typ": variables-list
@@ -24,6 +24,7 @@
   abbreviations-list: abbreviations-list,
   variables-list: variables-list,
   appendix: include "appendix.typ",
+  expose: false, // set to true to render an Exposé instead of a thesis
   draft: true,
   layout-mode: "bound"
 )

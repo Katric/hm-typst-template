@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.1.13
+
+> [!TIP]
+> The `thesis` template can now render an Exposé by setting `expose: true`. The Exposé title page reads "Exposé zur Bachelorarbeit" or "Exposé zur Masterarbeit" depending on `study-name`, labels supervisors as "Betreuer/in", and omits the declaration of independent writing, abstract, and blocking notice.
+> ```typst
+> #show: thesis.with(
+>   expose: true,
+>   title: "Titel des Exposés",
+>   study-name: study-name.IFB,
+>   author: "Erika Mustermann",
+>   supervisors: "Prof. Dr. Max Mustermann",
+>   submission-date: datetime.today(),
+> )
+> ```
+
+> [!NOTE]
+> The `examples/` directory now includes an `expose.typ` example, and the `examples/Makefile` compiles `expose.pdf` together with the other examples.
+
 ## 0.1.12
 
 > [!TIP]

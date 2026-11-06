@@ -1,6 +1,6 @@
 ROOT := ..
 
-PDFS := thesis.pdf modularbeit.pdf hauptseminar.pdf
+PDFS := thesis.pdf modularbeit.pdf hauptseminar.pdf expose.pdf
 
 .PHONY: all examples
 
@@ -16,3 +16,6 @@ modularbeit.pdf:
 
 hauptseminar.pdf:
 	typst compile hauptseminar.typ --root $(ROOT) $< $@
+
+expose.pdf:
+	typst compile expose.typ --root $(ROOT) $< $@

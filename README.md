@@ -5,7 +5,7 @@
 
 Unofficial thesis, report and paper template for Munich University of Applied Sciences (Hochschule München).
 
-ℹ️ Currently supports FK07 and FK21 (MUC.DAI) theses, Modulararbeiten and Computer Science (IG) Hauptseminar papers.
+ℹ️ Currently supports FK07 and FK21 (MUC.DAI) theses, Exposés, Modulararbeiten and Computer Science (IG) Hauptseminar papers.
 
 ## Getting started
 
@@ -45,6 +45,7 @@ After initialization, open `main.typ`, fill in the properties below, and start w
 | `blocking` | Enable blocking notice (default: `false`) |
 | `enable-header` | Show page headers (default: `true`) |
 | `draft` | Enable draft mode (default: `true`) |
+| `expose` | Render as an Exposé instead of a thesis (default: `false`) |
 | `bib` | Bibliography file reference |
 | `abbreviations-list` | Abbreviations for the glossary |
 | `variables-list` | Pre-defined variables |
@@ -64,6 +65,27 @@ Additionally, if you're in draft mode, you can use these helpers:
 #todo[Something to do]
 #done()
 ```
+
+### Exposé
+
+Set `expose: true` in the `thesis` settings to render the document as an Exposé. The title page then reads "Exposé zur Bachelorarbeit" or "Exposé zur Masterarbeit" depending on `study-name`, uses "Betreuer/in" for supervisors, and shows "Stand" instead of "Abgabetermin".
+
+Exposés keep the table of contents, body, bibliography, and optional appendix or abbreviations, but omit the declaration of independent writing, abstract, and blocking notice. Lists of figures, tables, and listings can be disabled with the corresponding `print-*` options.
+
+```typst
+#show: thesis.with(
+	expose: true,
+	title: "Title of the Exposé",
+	language: "de",
+	study-name: study-name.IFB, // use study-name.IGM for a Master's Exposé
+	author: "Erika Mustermann",
+	supervisors: "Prof. Dr. Max Mustermann",
+	submission-date: datetime.today(),
+	draft: false,
+)
+```
+
+A complete example is available in [`examples/expose.typ`](https://github.com/fine-seat/hm-typst-template/blob/v0.1.13/examples/expose.typ).
 
 ### Variables
 
@@ -103,7 +125,7 @@ The template also supports project documentation for a Modularbeit. Use `modular
 )
 ```
 
-Modularbeiten do not include the thesis declaration, abstract, or blocking notice. Lists of abbreviations, figures, listings, and tables can be disabled individually with the corresponding `print-*` parameters. A complete example is available in [`examples/modularbeit.typ`](https://github.com/fine-seat/hm-typst-template/blob/v.1.12/examples/modularbeit.typ).
+Modularbeiten do not include the thesis declaration, abstract, or blocking notice. Lists of abbreviations, figures, listings, and tables can be disabled individually with the corresponding `print-*` parameters. A complete example is available in [`examples/modularbeit.typ`](https://github.com/fine-seat/hm-typst-template/blob/v0.1.13/examples/modularbeit.typ).
 
 ### Hauptseminar
 
@@ -122,7 +144,7 @@ The template also supports Hauptseminar papers. Use `hauptseminar-paper` and pro
 )
 ```
 
-The seminar layout includes a dedicated title page for the paper and a course/major label. A complete example is available in [`examples/hauptseminar.typ`](https://github.com/fine-seat/hm-typst-template/blob/v0.1.12/examples/hauptseminar.typ).
+The seminar layout includes a dedicated title page for the paper and a course/major label. A complete example is available in [`examples/hauptseminar.typ`](https://github.com/fine-seat/hm-typst-template/blob/v0.1.13/examples/hauptseminar.typ).
 
 The repository contains complete examples for all supported document types. Compile them from the `examples` directory with:
 
