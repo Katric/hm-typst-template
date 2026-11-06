@@ -19,6 +19,10 @@
     de: "Prüfer",
     en: "Examiners",
   ),
+  supervisors: (
+    de: "Betreuer",
+    en: "Supervisors",
+  ),
   abbreviations: (
     de: "Abkürzungsverzeichnis",
     en: "Abbreviations",
@@ -116,6 +120,28 @@
       }
     } else {
       "Examiner"
+    }
+  }
+
+  t.supervisor = (gender: none) => {
+    if lang == "de" {
+      if gender == "m" {
+        "Betreuer"
+      } else if gender == "w" {
+        "Betreuerin"
+      } else {
+        "Betreuende Person"
+      }
+    } else {
+      "Supervisor"
+    }
+  }
+
+  t.expose-title = (thesis-type: none) => {
+    if lang == "de" {
+      [Exposé zur #thesis-type]
+    } else {
+      [Exposé for the #thesis-type]
     }
   }
 
